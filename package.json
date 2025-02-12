@@ -4,10 +4,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
-    "dev": "next dev", // or your framework's dev command
-    "build": "next build", // or your framework's build command
-    "start": "next start" // or your framework's start command
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +16,6 @@
     "express": "^4.21.2"
   },
   "engines": {
-    "node": "22.x"
+    "node": "20.x"
   }
 }
