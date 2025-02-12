@@ -1,17 +1,15 @@
 const express = require("express");
+const path = require("path");  // <-- Import the 'path' module
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.static("public"));
 
-app.set("views", path.join(__dirname, "views"));
-
+app.set("views", path.join(__dirname, "views")); // <-- Using 'path' here
 
 app.use(express.urlencoded({ extended: true }));
 
-
-
-let articles = []; // Stockage temporaire
+let articles = []; // Temporary storage
 
 app.get("/", (req, res) => {
     res.render("home", { articles });
@@ -27,4 +25,4 @@ app.post("/add", (req, res) => {
     res.redirect("/");
 });
 
-app.listen(port, () => console.log(`Serveur lancé sur http://localhost:${port}`));
+app.listen(port, () => console.log(`Server started on http://localhost:${port}`));
