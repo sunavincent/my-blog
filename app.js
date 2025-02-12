@@ -1,11 +1,12 @@
 const express = require("express");
-const path = require("path");  // <-- Import the 'path' module
+const path = require("path");  // Ensure path is included
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.static("public"));
 
-app.set("views", path.join(__dirname, "views")); // <-- Using 'path' here
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");  // Make sure this line is here
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -25,4 +26,4 @@ app.post("/add", (req, res) => {
     res.redirect("/");
 });
 
-app.listen(port, () => console.log(`Server started on http://localhost:${port}`));
+app.listen(port, () => console.log(`Server running at http://localhost:${port}`));
