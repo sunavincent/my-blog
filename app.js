@@ -1,19 +1,14 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.static("public"));
 
 app.set("view engine", "ejs");
+
 app.use(express.urlencoded({ extended: true }));
 
 
-
-app.get("/test-css", (req, res) => {
-    const filePath = __dirname + "/public/style.css";
-    console.log("Serving file from:", filePath);
-    res.sendFile(filePath);
-});
 
 let articles = []; // Stockage temporaire
 
